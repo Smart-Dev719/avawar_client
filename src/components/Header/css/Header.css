@@ -1,0 +1,81 @@
+.HeaderItem {
+  font-size: 45px;
+  font-family: "FSEX";
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0px 0px 4px rgb(149 231 57), 0px 0px 5px rgb(149 231 57);
+  cursor: pointer;
+}
+
+.PageHeaderInRow {
+  width: 1350px !important;
+}
+
+.HeaderLogo {
+  width: 330px;
+  cursor: pointer;
+}
+
+.ToggleBtn {
+  color: white;
+  font-size: 100px !important;
+  display: none;
+  margin-right: 20px;
+}
+
+.PageHeader {
+  padding: 50px 30px 0px 30px;
+}
+
+@media (max-width: 1440px) {
+  .PageHeaderInRow {
+    width: 95%;
+  }
+}
+
+@media (max-width: 1110px) {
+  .HeaderItem {
+    font-size: 38px;
+  }
+
+  .HeaderLogo {
+    width: 280px;
+  }
+}
+
+@media (max-width: 860px) {
+  .HeaderItem {
+    font-size: 34px;
+  }
+
+  .HeaderLogo {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .HeaderItem {
+    font-size: 28px;
+  }
+
+  .HeaderLogo {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .HeaderItem {
+    display: none;
+  }
+
+  .ToggleBtn {
+    display: block !important;
+    font-size: 150px !important;
+  }
+
+  .PageHeader {
+    padding-right: 20px;
+  }
+}
