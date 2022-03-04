@@ -1,7 +1,7 @@
 .HeaderItem {
   font-size: 45px;
   font-family: "FSEX";
-  color: rgb(255, 255, 255);
+  color: white !important;
   text-transform: uppercase;
   line-height: 1.2;
   text-align: center;
@@ -9,19 +9,46 @@
   cursor: pointer;
 }
 
+.NavToggleBtn:focus {
+  box-shadow: none;
+}
+
+.NavToggleBtn {
+  border: none;
+}
+
+.HeaderInRow {
+  display: flex !important;
+  justify-content: center !important;
+  border: 1px solid red;
+}
+
 .PageHeaderInRow {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
   width: 1350px !important;
 }
 
-.HeaderLogo {
+.HeaderLogo,
+.HeaderLogo1 {
   width: 330px;
   cursor: pointer;
 }
 
-.ToggleBtn {
-  color: white;
-  font-size: 100px !important;
+.HeaderLogo1 {
   display: none;
+}
+
+.TogglePart {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ToggleBtn {
+  color: #7bac43;
+  font-size: 35px !important;
   margin-right: 20px;
 }
 
@@ -31,7 +58,7 @@
 
 @media (max-width: 1440px) {
   .PageHeaderInRow {
-    width: 95%;
+    width: 95% !important;
   }
 }
 
@@ -42,6 +69,20 @@
 
   .HeaderLogo {
     width: 280px;
+  }
+}
+
+@media (max-width: 991px) {
+  .HeaderLogo1 {
+    display: block;
+    width: 200px;
+  }
+  .HeaderLogo {
+    display: none;
+  }
+  .TogglePart {
+    justify-content: left;
+    align-items: flex-start;
   }
 }
 
@@ -66,16 +107,13 @@
 }
 
 @media (max-width: 600px) {
-  .HeaderItem {
-    display: none;
-  }
-
   .ToggleBtn {
     display: block !important;
-    font-size: 150px !important;
+    /* font-size: 90px !important; */
+    min-width: 35px;
+    min-height: 35px;
   }
-
-  .PageHeader {
-    padding-right: 20px;
+  .ToggleBtn {
+    margin-right: -10px !important;
   }
 }
