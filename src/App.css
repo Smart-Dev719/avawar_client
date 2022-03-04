@@ -2,9 +2,3 @@
   font-family: "FSEX";
   src: url(./asset/font/FSEX/FSEX300.ttf);
 }
-
-body {
-  background-image: url(./asset/dashboard_back.png);
-  width: 100vw;
-  height: 100vh;
-}
