@@ -16,7 +16,7 @@ const Mint = () => {
             {mintCardData.map((item, index) => {
               return (
                 <div
-                  className="CardItem d-flex flex-column justify-content-center align-items-center gap-3"
+                  className="CardItem d-flex flex-column justify-content-center align-items-center"
                   key={index}
                 >
                   <div className="CardHeader d-flex flex-column justify-content-center align-items-center">

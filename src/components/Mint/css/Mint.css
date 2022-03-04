@@ -66,6 +66,8 @@
 
 .PageMint {
   padding: 50px 0px;
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
 }
 
 .CardImgPart {
@@ -80,11 +82,6 @@
   .PageMintInRow {
     width: 95%;
     gap: 25px;
-  }
-
-  .PageMint {
-    padding-top: 120px !important;
-    padding-bottom: 120px !important;
   }
 }
 
