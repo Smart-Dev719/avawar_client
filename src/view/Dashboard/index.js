@@ -6,10 +6,8 @@ import "./css/dashboard.css";
 const Dashboard = () => {
   return (
     <>
-      <div className="DashboardPage">
-        <Header />
-        <Mint />
-      </div>
+      <Header />
+      <Mint />
     </>
   );
 };

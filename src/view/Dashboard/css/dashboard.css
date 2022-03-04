@@ -1,9 +1,3 @@
-.DashboardPage {
-  background-image: url(../../../asset/dashboard_back.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .PageHeaderInRow {
   width: 1440px;
 }
