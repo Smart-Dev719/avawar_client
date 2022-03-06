@@ -1,31 +1,9 @@
 import MintCard1 from "../asset/Card1.png";
 import MintCard2 from "../asset/Card2.png";
-import MintCard3 from "../asset/Card3.png";
-import MintCard4 from "../asset/Card4.png";
+import MintCardMain from "../asset/CardMain.gif";
 
-export const mintCardData = [
-  {
-    Header1: "Random",
-    Header2: "Stats",
-    HeaderSub: "STR | AGI | INT | HP",
-    img: MintCard1,
-  },
-  {
-    Header1: "Random",
-    Header2: "Stats",
-    HeaderSub: "STR | AGI | INT | HP",
-    img: MintCard2,
-  },
-  {
-    Header1: "Random",
-    Header2: "Stats",
-    HeaderSub: "STR | AGI | INT | HP",
-    img: MintCard3,
-  },
-  {
-    Header1: "Random",
-    Header2: "Stats",
-    HeaderSub: "STR | AGI | INT | HP",
-    img: MintCard4,
-  },
-];
+export const mintCardData = {
+  MintCard1: MintCard1,
+  MintCard2: MintCard2,
+  MintCardMain: MintCardMain,
+};

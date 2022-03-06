@@ -2,7 +2,7 @@ body {
   background-image: url(../../../asset/dashboard_back.png);
   background-repeat: no-repeat;
   /* background-size: cover; */
-  background-size: 100vw 100vh;
+  background-size: 100vw 100%;
 }
 
 .PageHeaderInRow {

@@ -21,6 +21,24 @@
   text-align: center;
 }
 
+.spec1 {
+  background-image: url(../../../asset/Card1.png);
+  background-size: 100%;
+  width: 303px;
+  margin-top: 14px;
+}
+
+.spec2 {
+  background-image: url(../../../asset/Card2.png);
+  background-size: 100%;
+  width: 303px;
+  margin-top: 14px;
+}
+
+.CardImgHeader {
+  top: 25px;
+}
+
 .CardHeader2 {
   font-size: 30px;
   font-family: "FSEX";
@@ -29,6 +47,55 @@
   line-height: 1.2;
   text-shadow: 0px 0px 4px rgb(149 231 57), 0px 0px 5px rgb(149 231 57);
   text-align: center;
+}
+
+.CounterInput {
+  background-color: rgb(153, 217, 81);
+  width: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  max-height: 60px;
+  margin-bottom: 20px;
+}
+
+.CounterInpuBtn {
+  width: 60px;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  padding-top: 8px;
+  cursor: pointer;
+  font-family: "FSEX";
+  line-height: 40px;
+}
+
+.CounterInputDemo {
+  width: 80px !important;
+  text-align: center;
+  color: white;
+  font-family: "FSEX";
+  font-size: 40px;
+  position: relative;
+}
+
+.CounterInputDemo::before {
+  left: 0;
+  content: "";
+  width: 2px;
+  height: 50%;
+  background-color: #5c824b;
+  position: absolute;
+  top: 17px;
+}
+.CounterInputDemo::after {
+  right: 0;
+  content: "";
+  width: 2px;
+  height: 50%;
+  background-color: #5c824b;
+  position: absolute;
+  top: 17px;
 }
 
 .CardSubHeader {
@@ -125,6 +192,11 @@
   .PageMint {
     padding-top: 40px !important;
     padding-bottom: 40px !important;
+  }
+
+  .spec1,
+  .spec2 {
+    display: none !important;
   }
 
   .CardHeader1,
