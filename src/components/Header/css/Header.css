@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.PageHeader {
+  width: 1400px;
+}
+
 .NavToggleBtn:focus {
   box-shadow: none;
 }

@@ -3,12 +3,15 @@
 }
 
 .CardItem {
-  width: 320px;
-  padding: 20px;
-  padding-bottom: 30px;
+  width: 370px;
+  height: 705px;
   background-image: url(../../../asset/CardBorderBack.png);
   background-size: 100% 100%;
-  background-repeat: no-repeat;
+  box-shadow: 0px 0px 18px rgb(114, 151, 59), 0px 0px 18px rgb(114, 151, 59);
+}
+
+.CardHeader {
+  top: 15px;
 }
 
 .CardHeader1 {
@@ -20,19 +23,20 @@
   text-shadow: 0px 0px 4px rgb(149 231 57), 0px 0px 5px rgb(149 231 57);
   text-align: center;
 }
-
-.spec1 {
+.CardItem1 {
+  width: 370px;
+  height: 700px;
   background-image: url(../../../asset/Card1.png);
-  background-size: 100%;
-  width: 303px;
-  margin-top: 14px;
+  background-size: 100% 100%;
+  box-shadow: 0px 0px 18px rgb(114, 151, 59), 0px 0px 18px rgb(114, 151, 59);
 }
 
-.spec2 {
+.CardItem2 {
+  width: 370px;
+  height: 700px;
   background-image: url(../../../asset/Card2.png);
-  background-size: 100%;
-  width: 303px;
-  margin-top: 14px;
+  background-size: 100% 100%;
+  box-shadow: 0px 0px 18px rgb(114, 151, 59), 0px 0px 18px rgb(114, 151, 59);
 }
 
 .CardImgHeader {
@@ -55,8 +59,9 @@
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 15px;
-  max-height: 60px;
+  max-height: 50px;
   margin-bottom: 20px;
+  bottom: 20px;
 }
 
 .CounterInpuBtn {
@@ -67,7 +72,7 @@
   padding-top: 8px;
   cursor: pointer;
   font-family: "FSEX";
-  line-height: 40px;
+  line-height: 36px;
 }
 
 .CounterInputDemo {
@@ -77,6 +82,7 @@
   font-family: "FSEX";
   font-size: 40px;
   position: relative;
+  line-height: 50px;
 }
 
 .CounterInputDemo::before {
@@ -117,6 +123,7 @@
   cursor: pointer;
   z-index: 9;
   transition: all ease 0.5s;
+  margin-top: 20px;
 }
 
 .MintBtn:hover {
@@ -152,6 +159,19 @@
   }
 }
 
+@media (max-width: 1250px) {
+  .CardItem,
+  .CardItem1,
+  .CardItem2 {
+    width: 340px;
+    height: 600px;
+  }
+
+  .CounterInput {
+    bottom: 5px;
+  }
+}
+
 @media (max-width: 1100px) {
   .CardSubHeader {
     font-size: 18px;
@@ -159,12 +179,28 @@
   .PageMint {
     padding-top: 100px !important;
   }
+  .CardItem,
+  .CardItem1,
+  .CardItem2 {
+    width: 300px;
+    height: 570px;
+  }
 }
 
 @media (max-width: 1000px) {
+  .CardHeader {
+    top: 18px;
+  }
   .CardHeader1,
   .CardHeader2 {
     font-size: 25px;
+  }
+
+  .CardItem,
+  .CardItem1,
+  .CardItem2 {
+    width: 280px;
+    height: 500px;
   }
 
   .CardSubHeader {
@@ -179,8 +215,11 @@
 }
 
 @media (max-width: 965px) {
-  .CardSubHeader {
-    font-size: 14px;
+  .CardItem,
+  .CardItem1,
+  .CardItem2 {
+    width: 240px;
+    height: 460px;
   }
 }
 
@@ -192,6 +231,20 @@
   .PageMint {
     padding-top: 40px !important;
     padding-bottom: 40px !important;
+  }
+
+  .CounterInput {
+    bottom: 20px;
+  }
+
+  .CardItem1,
+  .CardItem2 {
+    display: none !important;
+  }
+
+  .CardItem {
+    width: 300px !important;
+    height: 620px !important;
   }
 
   .spec1,
@@ -247,5 +300,9 @@
 @media (max-width: 368px) {
   .CardItem {
     width: 90%;
+  }
+  .CardItem {
+    width: 280px !important;
+    height: 580px !important;
   }
 }

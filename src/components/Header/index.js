@@ -67,9 +67,14 @@ const Header = () => {
           </div>
         </div>
       </nav> */}
-      <nav class="navbar navbar-expand-lg navbar-light PageHeader">
-        <div class="container-fluid">
-          <img src={HeaderLogo} alt="" className="HeaderLogo1"></img>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid PageHeader">
+          <img
+            src={HeaderLogo}
+            alt=""
+            draggable={false}
+            className="HeaderLogo1"
+          ></img>
 
           <button
             class="navbar-toggler NavToggleBtn"
@@ -101,7 +106,12 @@ const Header = () => {
               >
                 Mint
               </a>
-              <img src={HeaderLogo} alt="" className="HeaderLogo"></img>
+              <img
+                src={HeaderLogo}
+                alt=""
+                draggable={false}
+                className="HeaderLogo"
+              ></img>
               <a
                 class="nav-link active HeaderItem"
                 aria-current="page"
