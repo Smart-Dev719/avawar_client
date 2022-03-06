@@ -1,5 +1,5 @@
 .PageMintInRow {
-  width: 1400px;
+  width: 2200px;
 }
 
 .CardItem {
@@ -135,7 +135,7 @@
 }
 
 .PageMintInRow {
-  gap: 50px;
+  gap: 250px;
 }
 
 .PageMint {
@@ -152,10 +152,28 @@
   align-items: flex-end;
 }
 
+@media (max-width: 2100px) {
+  .PageMintInRow {
+    gap: 150px !important;
+  }
+  .PageMintInRow {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 2100px) {
+  .PageMintInRow {
+    gap: 100px !important;
+  }
+  .PageMintInRow {
+    width: 95% !important;
+  }
+}
+
 @media (max-width: 1400px) {
   .PageMintInRow {
     width: 95%;
-    gap: 25px;
+    gap: 25px !important;
   }
 }
 
