@@ -173,18 +173,16 @@
 @media (max-width: 1400px) {
   .PageMintInRow {
     width: 95%;
-    gap: 25px !important;
+  }
+  .CardItem,
+  .CardItem1,
+  .CardItem2 {
+    width: 300px;
+    height: 570px;
   }
 }
 
 @media (max-width: 1250px) {
-  .CardItem,
-  .CardItem1,
-  .CardItem2 {
-    width: 340px;
-    height: 600px;
-  }
-
   .CounterInput {
     bottom: 5px;
   }
@@ -197,11 +195,9 @@
   .PageMint {
     padding-top: 100px !important;
   }
-  .CardItem,
-  .CardItem1,
-  .CardItem2 {
-    width: 300px;
-    height: 570px;
+
+  .PageMintInRow {
+    gap: 25px !important;
   }
 }
 
