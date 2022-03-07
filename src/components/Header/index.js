@@ -8,13 +8,14 @@ const Header = () => {
     <>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid PageHeader">
-          <img
-            src={HeaderLogo}
-            alt=""
-            draggable={false}
-            className="HeaderLogo1"
-          ></img>
-
+          <a href="https://avawar.net/" rel="" target={"_blank"}>
+            <img
+              src={HeaderLogo}
+              alt=""
+              draggable={false}
+              className="HeaderLogo1"
+            ></img>
+          </a>
           <button
             class="navbar-toggler NavToggleBtn"
             type="button"
@@ -31,7 +32,8 @@ const Header = () => {
               <a
                 class="nav-link active HeaderItem"
                 aria-current="page"
-                href="#"
+                href="https://avawar.net/"
+                target={"_blank"}
                 rel="noreferrer"
               >
                 Home
@@ -45,12 +47,14 @@ const Header = () => {
               >
                 Mint
               </a>
-              <img
-                src={HeaderLogo}
-                alt=""
-                draggable={false}
-                className="HeaderLogo"
-              ></img>
+              <a href="https://avawar.net/" target={"_blank"}>
+                <img
+                  src={HeaderLogo}
+                  alt=""
+                  draggable={false}
+                  className="HeaderLogo"
+                ></img>
+              </a>
               <a
                 class="nav-link active HeaderItem"
                 aria-current="page"
