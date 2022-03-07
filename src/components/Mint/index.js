@@ -35,7 +35,7 @@ const Mint = () => {
                 <span
                   className="CounterInpuBtn"
                   onClick={() => {
-                    if (count - 1 !== 0) setCount(count - 1);
+                    if (count !== 1) setCount(count - 1);
                   }}
                 >
                   -
@@ -44,7 +44,7 @@ const Mint = () => {
                 <span
                   className="CounterInpuBtn"
                   onClick={() => {
-                    if (count + 1 !== 4) setCount(count + 1);
+                    if (count !== 10) setCount(count + 1);
                   }}
                 >
                   +
