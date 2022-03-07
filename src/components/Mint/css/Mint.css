@@ -126,8 +126,21 @@
   margin-top: 20px;
 }
 
-.MintBtn:hover {
+.MintBtn:hover,
+.WalletBtn:hover {
   transform: scale(1.1);
+}
+
+.WalletBtn {
+  width: 180px;
+  height: 70px;
+  background-image: url(../../../asset/wallet.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  z-index: 9;
+  transition: all ease 0.5s;
+  margin-top: 20px;
 }
 
 .CardImg {

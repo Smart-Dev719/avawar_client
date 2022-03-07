@@ -6,8 +6,8 @@ import { FaAlignJustify } from "react-icons/fa";
 const Header = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid PageHeader">
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <div className="container-fluid PageHeader">
           <a href="https://avawar.net/" rel="" target={"_blank"}>
             <img
               src={HeaderLogo}
@@ -17,7 +17,7 @@ const Header = () => {
             ></img>
           </a>
           <button
-            class="navbar-toggler NavToggleBtn"
+            className="navbar-toggler NavToggleBtn"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup"
@@ -27,10 +27,10 @@ const Header = () => {
           >
             <FaAlignJustify className="ToggleBtn" />
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav TogglePart">
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav TogglePart">
               <a
-                class="nav-link active HeaderItem"
+                className="nav-link active HeaderItem"
                 aria-current="page"
                 href="https://avawar.net/"
                 target={"_blank"}
@@ -39,7 +39,7 @@ const Header = () => {
                 Home
               </a>
               <a
-                class="nav-link active HeaderItem"
+                className="nav-link active HeaderItem"
                 aria-current="page"
                 href="https://mint.avawar.net/"
                 target={"_blank"}
@@ -56,7 +56,7 @@ const Header = () => {
                 ></img>
               </a>
               <a
-                class="nav-link active HeaderItem"
+                className="nav-link active HeaderItem"
                 aria-current="page"
                 href="https://docs.avawar.net/"
                 target={"_blank"}
@@ -65,7 +65,7 @@ const Header = () => {
                 Docs
               </a>
               <a
-                class="nav-link active HeaderItem"
+                className="nav-link active HeaderItem"
                 aria-current="page"
                 href="https://marketplace.avawar.net/"
                 target={"_blank"}

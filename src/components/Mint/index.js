@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Animated } from "react-animated-css";
 import { mintCardData } from "../../constant";
-import HeaderLogo from "../../asset/HeaderCenter.png";
 import "./css/Mint.css";
 
 const Mint = () => {
   const [count, setCount] = useState(1);
+  const [walletAddress, setWalletAddress] = useState("");
+
+  useEffect(() => {
+    connectWallet();
+    window.ethereum.on("accountsChanged", (accounts) => {
+      if (accounts[0] === undefined) {
+        setWalletAddress("");
+      }
+    });
+  }, []);
+
+  const connectWallet = async () => {
+    if (typeof window.ethereum !== "undefined") {
+      console.log("MetaMask is installed!");
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      const account = accounts[0];
+      setWalletAddress(account);
+    } else {
+      alert("Please install Metamask!");
+    }
+  };
 
   return (
     <>
@@ -53,7 +75,16 @@ const Mint = () => {
             </div>
             <div className="CardItem2 gap-3 d-flex flex-column justify-content-center align-items-center position-relative"></div>
           </div>
-          <div className="MintBtn"></div>
+          {walletAddress ? (
+            <div className="MintBtn"></div>
+          ) : (
+            <div
+              className="WalletBtn"
+              onClick={() => {
+                connectWallet();
+              }}
+            ></div>
+          )}
         </div>
       </Animated>
     </>
