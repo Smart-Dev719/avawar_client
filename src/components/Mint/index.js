@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Animated } from "react-animated-css";
 import { mintCardData } from "../../constant";
 import "./css/Mint.css";
+import VoiceIcon from "../../asset/soundiconsmallawt.png";
+import VoiceMuteIcon from "../../asset/awtsoudnmute.png";
+import useSound from "use-sound";
+import AvawarMp3 from "../../asset/AvaWar.mp3";
 
 const Mint = () => {
   const [count, setCount] = useState(1);
   const [walletAddress, setWalletAddress] = useState("");
+  const [play, { stop }] = useSound(AvawarMp3);
+  const [muteToggle, setMuteToggle] = useState(true);
 
   useEffect(() => {
+    play();
     connectWallet();
     window.ethereum.on("accountsChanged", (accounts) => {
       if (accounts[0] === undefined) {
@@ -15,6 +22,14 @@ const Mint = () => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (muteToggle) {
+      play();
+    } else {
+      stop();
+    }
+  }, [muteToggle]);
 
   const connectWallet = async () => {
     if (typeof window.ethereum !== "undefined") {
@@ -75,16 +90,37 @@ const Mint = () => {
             </div>
             <div className="CardItem2 gap-3 d-flex flex-column justify-content-center align-items-center position-relative"></div>
           </div>
-          {walletAddress ? (
-            <div className="MintBtn"></div>
-          ) : (
-            <div
-              className="WalletBtn"
-              onClick={() => {
-                connectWallet();
-              }}
-            ></div>
-          )}
+          <div className="d-flex align-items-center justify-content-center">
+            {walletAddress ? (
+              <div className="MintBtn"></div>
+            ) : (
+              <div
+                className="WalletBtn"
+                onClick={() => {
+                  connectWallet();
+                }}
+              ></div>
+            )}
+            {muteToggle ? (
+              <span onClick={() => setMuteToggle(false)}>
+                <img
+                  src={VoiceIcon}
+                  className="mt-3 VoiceBtn"
+                  width={50}
+                  alt=""
+                />
+              </span>
+            ) : (
+              <span onClick={() => setMuteToggle(true)}>
+                <img
+                  src={VoiceMuteIcon}
+                  className="mt-3 VoiceBtn"
+                  width={50}
+                  alt=""
+                />
+              </span>
+            )}
+          </div>
         </div>
       </Animated>
     </>

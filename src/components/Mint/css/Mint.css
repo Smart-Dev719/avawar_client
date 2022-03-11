@@ -126,8 +126,14 @@
   margin-top: 20px;
 }
 
+.VoiceBtn {
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+
 .MintBtn:hover,
-.WalletBtn:hover {
+.WalletBtn:hover,
+.VoiceBtn:hover {
   transform: scale(1.1);
 }
 
