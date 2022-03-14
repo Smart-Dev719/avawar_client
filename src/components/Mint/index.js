@@ -6,12 +6,23 @@ import VoiceIcon from "../../asset/soundiconsmallawt.png";
 import VoiceMuteIcon from "../../asset/awtsoudnmute.png";
 import useSound from "use-sound";
 import AvawarMp3 from "../../asset/AvaWar.mp3";
+import { useSelector, useDispatch } from "react-redux";
+import { mintNft } from "../../../web3/web3";
 
 const Mint = () => {
   const [count, setCount] = useState(1);
   const [walletAddress, setWalletAddress] = useState("");
   const [play, { stop }] = useSound(AvawarMp3);
   const [muteToggle, setMuteToggle] = useState(true);
+
+  const [selectedCount, setSelectedCount] = useState(1);
+  const dispatch = useDispatch();
+  const mintable = useSelector((state) => state.mint);
+  const [mintLoading, setMintLoading] = useState(false);
+  const [mintStatus, setMintStatus] = useState(false);
+  const [viewModal, setViewModal] = useState(false);
+  const [networkId, setNetworkId] = useState();
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     play();
