@@ -8,31 +8,29 @@ import useSound from "use-sound";
 import AvawarMp3 from "../../asset/AvaWar.mp3";
 import { useSelector, useDispatch } from "react-redux";
 import { mintNft } from "../../web3/web3";
+import { onCheckMintable, onGetMintData } from "../../redux/actions";
+import swal from 'sweetalert';
+import Modal from "react-modal";
+import { CloseOutlined } from '@ant-design/icons';
 
-const Mint = () => {
-  const [count, setCount] = useState(1);
-  const [walletAddress, setWalletAddress] = useState("");
+import HeaderLogo from "../../asset/HeaderCenter.png";
+
+const Mint = (props) => {
+  const { metamaskConnected, account, setMetamaskConnnected } = props;
+
   const [play, { stop }] = useSound(AvawarMp3);
   const [muteToggle, setMuteToggle] = useState(true);
 
-  const [selectedCount, setSelectedCount] = useState(1);
   const dispatch = useDispatch();
+  const [count, setCount] = useState(1);
+  const [preLoading, setPreLoading] = useState(false);
+  const [selectedCount, setSelectedCount] = useState(1);
   const mintable = useSelector((state) => state.mint);
   const [mintLoading, setMintLoading] = useState(false);
   const [mintStatus, setMintStatus] = useState(false);
   const [viewModal, setViewModal] = useState(false);
   const [networkId, setNetworkId] = useState();
   const [modal, setModal] = useState(false);
-
-  useEffect(() => {
-    play();
-    connectWallet();
-    window.ethereum.on("accountsChanged", (accounts) => {
-      if (accounts[0] === undefined) {
-        setWalletAddress("");
-      }
-    });
-  }, []);
 
   useEffect(() => {
     if (muteToggle) {
@@ -42,17 +40,60 @@ const Mint = () => {
     }
   }, [muteToggle]);
 
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== "undefined") {
-      console.log("MetaMask is installed!");
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-      const account = accounts[0];
-      setWalletAddress(account);
-    } else {
-      alert("Please install Metamask!");
+  const handleConnectWallet = async () => {
+    if (window.ethereum) {
+      await window.ethereum.enable();
+      setMetamaskConnnected(true);
+      window.location.reload();
     }
+  };
+
+  useEffect(() => {
+    if (account) {
+      setPreLoading(true);
+      dispatch(
+        onCheckMintable({
+          address: account,
+        })
+      );
+    }
+  }, [account]);
+
+  useEffect(async () => {
+    if (mintable.count || mintable.failedMsg) {
+      setPreLoading(false);
+    }
+    if (mintable.failedMsg) {
+      setMintLoading(false);
+      swal("Sorry!", mintable.failedMsg, "warning");
+    }
+    if (mintable.mintData.success == true) {
+      const price = mintable.mintData.price;
+      const tokenAmount = mintable.mintData.tokenAmount;
+      await mintNft(price, tokenAmount, account)
+        .then((data) => {
+          setMintStatus(data);
+          setMintLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [mintable]);
+
+  useEffect(() => {
+    if (mintStatus) {
+      setViewModal(true);
+    }
+  }, [mintStatus]);
+
+  const handleMint = () => {
+    setMintLoading(true);
+    dispatch(onGetMintData({ address: account, count: selectedCount }));
+  };
+
+  const handleClose = () => {
+    setViewModal(false);
   };
 
   return (
@@ -63,6 +104,28 @@ const Mint = () => {
         animationOutDelay={10}
       >
         <div className="PageMint d-flex justify-content-center flex-column align-items-center w-100">
+
+          <Modal
+            isOpen={viewModal}
+            onRequestClose={() => setViewModal(false)}
+            contentLabel="Example Modal"
+            className="ConnectModal"
+            overlayClassName="ConnectModalOverlay"
+          >
+            <div className="ConnectModalMain d-flex flex-column justify-content-center align-items-center">
+              <div className="ModalHeader d-flex flex-column justify-content-between">
+                <div className="d-flex justify-content-between">
+                  <span className="ModalHeaderText"><img src={HeaderLogo} className="ModalLogo" alt='' /></span><span onClick={() => setViewModal(false)}><CloseOutlined className="ModalCloseBtn" /></span>
+                </div>
+                <div className="ModalDescription d-flex flex-column align-items-center">
+                  <span className="ModalTitle">Congratulations!</span>
+                  <span className="ModalText">You have successfully minted your AvaWar NFT !</span>
+                </div>
+              </div>
+
+            </div>
+          </Modal>
+
           <div className="PageMintInRow d-flex justify-content-center">
             <div className="CardItem1 gap-3 d-flex flex-column justify-content-center align-items-center position-relative"></div>
             <div className="CardItem gap-3 d-flex flex-column justify-content-center align-items-center position-relative">
@@ -83,16 +146,16 @@ const Mint = () => {
                 <span
                   className="CounterInpuBtn"
                   onClick={() => {
-                    if (count !== 1) setCount(count - 1);
+                    if (selectedCount > 1) setSelectedCount(selectedCount - 1);
                   }}
                 >
                   -
                 </span>
-                <span className="CounterInputDemo">{count}</span>
+                <span className="CounterInputDemo">{selectedCount}</span>
                 <span
                   className="CounterInpuBtn"
                   onClick={() => {
-                    if (count !== 10) setCount(count + 1);
+                    if (selectedCount < 10) setSelectedCount(selectedCount + 1);
                   }}
                 >
                   +
@@ -102,13 +165,15 @@ const Mint = () => {
             <div className="CardItem2 gap-3 d-flex flex-column justify-content-center align-items-center position-relative"></div>
           </div>
           <div className="d-flex align-items-center justify-content-center">
-            {walletAddress ? (
-              <div className="MintBtn"></div>
+            {metamaskConnected && account ? (
+              <div className="MintBtn"
+                onClick={handleMint}
+              ></div>
             ) : (
               <div
                 className="WalletBtn"
                 onClick={() => {
-                  connectWallet();
+                  handleConnectWallet();
                 }}
               ></div>
             )}

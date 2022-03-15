@@ -3,12 +3,17 @@ import { Header } from "../../components/Header";
 import { Mint } from "../../components/Mint";
 import "./css/dashboard.css";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const { metamaskConnected, account, setMetamaskConnnected } = props;
   return (
     <>
       <div className="DashboardPage">
         <Header />
-        <Mint />
+        <Mint
+          metamaskConnected={metamaskConnected}
+          setMetamaskConnnected={setMetamaskConnnected}
+          account={account}
+        />
       </div>
     </>
   );
