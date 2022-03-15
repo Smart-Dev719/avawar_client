@@ -7,7 +7,7 @@ import VoiceMuteIcon from "../../asset/awtsoudnmute.png";
 import useSound from "use-sound";
 import AvawarMp3 from "../../asset/AvaWar.mp3";
 import { useSelector, useDispatch } from "react-redux";
-import { mintNft } from "../../../web3/web3";
+import { mintNft } from "../../web3/web3";
 
 const Mint = () => {
   const [count, setCount] = useState(1);
