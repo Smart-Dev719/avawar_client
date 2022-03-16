@@ -28,7 +28,7 @@ const Mint = (props) => {
   const mintable = useSelector((state) => state.mint);
   const [mintLoading, setMintLoading] = useState(false);
   const [mintStatus, setMintStatus] = useState(false);
-  const [viewModal, setViewModal] = useState(false);
+  const [viewModal, setViewModal] = useState(true);
   const [networkId, setNetworkId] = useState();
   const [modal, setModal] = useState(false);
 
@@ -119,7 +119,8 @@ const Mint = (props) => {
                 </div>
                 <div className="ModalDescription d-flex flex-column align-items-center">
                   <span className="ModalTitle">Congratulations!</span>
-                  <span className="ModalText">You have successfully minted your AvaWar NFT !</span>
+                  <a href="https://testnets.nftrade.com/assets/fuji/0xd151621eedbefb10704acebe1c841550cb8ac83e" className="ModalText" target="_blank"
+                    rel="noreferrer">You have successfully minted your AvaWar NFT !</a>
                 </div>
               </div>
 
