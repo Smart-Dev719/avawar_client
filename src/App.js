@@ -59,7 +59,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      {networkId != 43113 && metamaskConnected && (
+      {networkId != 43114 && metamaskConnected && (
         <div className="network-err-msg">
           <h4>Please switch to Avalanche network. <a href="https://support.avax.network/en/articles/4626956-how-do-i-set-up-metamask-on-avalanche" target="_blank" rel="noreferrer">How do I set up Metamask on Avalanche?</a></h4>
         </div>
