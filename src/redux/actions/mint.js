@@ -16,13 +16,16 @@ export const onCheckMintable = ({
         };
         try {
             const res = await authAxios.post("/checkMintable", body);
+            console.log("result------", res.data);
+            console.log("asdfasdfasdfasdf---------", res.data.totalToken);
             if (res.data.success == false) {
                 dispatch({
                     type: CHECK_MINTABLE_FAILED,
                     payload: {
                         failedMsg: res.data.message,
                         minted: res.data.minted,
-                        soldout: res.data.soldout
+                        soldout: res.data.soldout,
+                        totalCount: res.data.totalToken
                     },
                 });
             } else {
@@ -30,6 +33,7 @@ export const onCheckMintable = ({
                     type: CHECK_MINTABLE_SUCCESS,
                     payload: {
                         count: res.data.count,
+                        totalCount: res.data.totalToken
                     },
                 });
             }

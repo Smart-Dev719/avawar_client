@@ -165,38 +165,50 @@ const Mint = (props) => {
             </div>
             <div className="CardItem2 gap-3 d-flex flex-column justify-content-center align-items-center position-relative"></div>
           </div>
-          <div className="d-flex align-items-center justify-content-center">
-            {metamaskConnected && account ? (
-              <div className="MintBtn"
-                onClick={handleMint}
-              ></div>
-            ) : (
-              <div
-                className="WalletBtn"
-                onClick={() => {
-                  handleConnectWallet();
-                }}
-              ></div>
-            )}
-            {muteToggle ? (
-              <span onClick={() => setMuteToggle(false)}>
-                <img
-                  src={VoiceIcon}
-                  className="mt-3 VoiceBtn"
-                  width={50}
-                  alt=""
-                />
-              </span>
-            ) : (
-              <span onClick={() => setMuteToggle(true)}>
-                <img
-                  src={VoiceMuteIcon}
-                  className="mt-3 VoiceBtn"
-                  width={50}
-                  alt=""
-                />
-              </span>
-            )}
+          <div className="MintSection align-items-center justify-content-between gap-2">
+
+            {/* {mintable.totalCount && (
+              <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span>
+            )} */}
+
+            <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span>
+
+            <span className="d-flex justify-content-center align-items-center">
+              {metamaskConnected && account ? (
+                <div className="MintBtn"
+                  onClick={handleMint}
+                ></div>
+              ) : (
+                <div
+                  className="WalletBtn"
+                  onClick={() => {
+                    handleConnectWallet();
+                  }}
+                ></div>
+              )}
+              {muteToggle ? (
+                <span onClick={() => setMuteToggle(false)}>
+                  <img
+                    src={VoiceIcon}
+                    className="mt-3 VoiceBtn"
+                    width={50}
+                    alt=""
+                  />
+                </span>
+              ) : (
+                <span onClick={() => setMuteToggle(true)}>
+                  <img
+                    src={VoiceMuteIcon}
+                    className="mt-3 VoiceBtn"
+                    width={50}
+                    alt=""
+                  />
+                </span>
+              )}
+            </span>
+
+
+
           </div>
         </div>
       </Animated>

@@ -9,6 +9,7 @@ const INIT_STATE = {
     failedMsg: null,
     minted: null,
     count: null,
+    totalCount: null,
     mintData: [],
 };
 
@@ -19,12 +20,14 @@ const mintReducer = (state = INIT_STATE, action) => {
                 ...state,
                 failedMsg: action.payload.failedMsg,
                 minted: action.payload.minted,
+                totalCount: action.payload.totalCount,
             };
         }
         case CHECK_MINTABLE_SUCCESS: {
             return {
                 ...state,
                 count: action.payload.count,
+                totalCount: action.payload.totalCount,
             };
         }
         case GET_MINTDATA_SUCCESS: {
