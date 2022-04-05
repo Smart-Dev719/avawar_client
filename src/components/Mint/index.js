@@ -167,11 +167,11 @@ const Mint = (props) => {
           </div>
           <div className="MintSection align-items-center justify-content-between gap-2">
 
-            {/* {mintable.totalCount && (
+            {mintable.totalCount && (
               <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span>
-            )} */}
+            )}
 
-            <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span>
+            {/* <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span> */}
 
             <span className="d-flex justify-content-center align-items-center">
               {metamaskConnected && account ? (
