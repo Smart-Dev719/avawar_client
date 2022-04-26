@@ -156,7 +156,7 @@ const Mint = (props) => {
                 <span
                   className="CounterInpuBtn"
                   onClick={() => {
-                    if (selectedCount < 10) setSelectedCount(selectedCount + 1);
+                    if (selectedCount < 5) setSelectedCount(selectedCount + 1);
                   }}
                 >
                   +
