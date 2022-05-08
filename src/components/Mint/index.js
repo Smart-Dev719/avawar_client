@@ -119,7 +119,7 @@ const Mint = (props) => {
                 </div>
                 <div className="ModalDescription d-flex flex-column align-items-center">
                   <span className="ModalTitle">Congratulations!</span>
-                  <a href="https://nftrade.com/assets/avalanche/0x5f241e003ba8cb0450dfef2d6fbb508e318a088a" className="ModalText" target="_blank"
+                  <a href="https://marketplace.kalao.io/collection/0x5f241e003ba8cb0450dfef2d6fbb508e318a088a" className="ModalText" target="_blank"
                     rel="noreferrer">You have successfully minted your AvaWar NFT !</a>
                 </div>
               </div>
