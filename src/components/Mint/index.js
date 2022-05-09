@@ -168,7 +168,7 @@ const Mint = (props) => {
           <div className="MintSection align-items-center justify-content-between gap-2">
 
             {mintable.totalCount && (
-              <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span>
+              <a href="https://marketplace.kalao.io/collection/0x5f241e003ba8cb0450dfef2d6fbb508e318a088a" className="MintCount text-white" target="_blank" rel="noreferrer"><span>{mintable.totalCount}/1500</span></a>
             )}
 
             {/* <span className="MintCount text-white"><span>{mintable.totalCount}/1500</span></span> */}
